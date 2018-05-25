@@ -1,0 +1,33 @@
+{
+  "name": "worldcup-graphql",
+  "version": "1.0.0",
+  "description": "Node/Express GraphQl API with information of all worldcup information champions.",
+  "main": "tests.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel-watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luizpaulofranz/worldcup-graphql.git"
+  },
+  "keywords": [
+    "graphql",
+    "node",
+    "express"
+  ],
+  "author": "Luiz Paulo Franz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luizpaulofranz/worldcup-graphql/issues"
+  },
+  "homepage": "https://github.com/luizpaulofranz/worldcup-graphql#readme",
+  "dependencies": {
+    "babel-watch": "^2.0.7",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
