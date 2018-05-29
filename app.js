@@ -4,6 +4,8 @@ import express from 'express';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 // parse requests body to json is needed for graphql
 import bodyParser from 'body-parser';
+// imports the graphql schema definition
+import schema from './schema'
 // handle http requests
 const server = express();
 
@@ -15,7 +17,7 @@ server.use('/graphiql', graphiqlExpress({
 }));
 
 // the graphql server is handled by apollo-server-express
-server.use('/graphql', bodyParser.json(), graphqlExpress({}));
+server.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
 
 server.listen(4000, () => {
     console.log('Server listening on port 4000.');
