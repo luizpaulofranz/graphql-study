@@ -6,6 +6,7 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 // imports the graphql schema definition
 import schema from './schema'
+
 // handle http requests
 const server = express();
 
