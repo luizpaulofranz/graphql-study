@@ -6,9 +6,17 @@ import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 // imports the graphql schema definition
 import schema from './schema'
+import mongoose from 'mongoose';
 
 // handle http requests
 const server = express();
+
+mongoose.connect('mongodb://localhost/graphqlTutorial')
+
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log('Successfully connected with database.');
+});
 
 // when we have mapped methods in argument, we just "use" them
 // this endpoint is our test graphql client
