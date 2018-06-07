@@ -11,4 +11,4 @@ const authorSchema = new schema({
     books: [String]
 });
 
-export default authorSchema;
+export default mongoose.model('Author', authorSchema);
