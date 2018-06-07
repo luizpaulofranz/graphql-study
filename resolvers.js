@@ -1,5 +1,8 @@
 // the fields must me exactly with same name as in schema
 
+import mongoose from 'mongoose';
+import authorModel from './model/author';
+/*
 const fakeData = [
     {
         id: 1,
@@ -20,6 +23,7 @@ const fakeData = [
         books: ['The Lord of the Rings','The Hobbit', 'Silmarilion']
     }
 ];
+*/
 
 // resolvers shows how to go through our schema, and how ro retrieve de data
 // the Query "authors" must be defined in the schema too, here we program how to retrieve it
@@ -27,12 +31,20 @@ const fakeData = [
 const resolvers = {
     Query: {
         authors: () => {
-            return fakeData;
+            //return fakeData;
         },
         // root is never used, and args holds our filter params
         author: (root, args) => {
-            const id = args.id;
-            return fakeData.find((author) => author.id === id);
+            //const id = args.id;
+            //return fakeData.find((author) => author.id === id);
+        }
+    },
+    // mutations changes the data states
+    Mutation: {
+        addAuthor: (root, {name, age, books}) => {
+            console.log(name, age, books);
+            const author = new authorModel({name: name, age: age, books: books});
+            return author.save();
         }
     }
 };

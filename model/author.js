@@ -5,10 +5,10 @@ const schema = mongoose.Schema;
 
 // this schema must be compatible with schema from graphQl
 const authorSchema = new schema({
-
     id: {type: String, default: uuid.v1},
     name: String,
     age: Number,
     books: [String]
-    
 });
+
+export default authorSchema;
