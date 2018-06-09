@@ -1,7 +1,7 @@
 // the fields must me exactly with same name as in schema
 
-import mongoose from 'mongoose';
-import authorModel from './model/author';
+// import mongoose from 'mongoose';
+import Author from './model/author';
 /*
 const fakeData = [
     {
@@ -31,12 +31,11 @@ const fakeData = [
 const resolvers = {
     Query: {
         authors: () => {
-            //return fakeData;
+            return authorModel.find({});
         },
         // root is never used, and args holds our filter params
-        author: (root, args) => {
-            //const id = args.id;
-            //return fakeData.find((author) => author.id === id);
+        author: (root, id) => {
+            return authorModel.findOne({id});
         }
     },
     // mutations changes the data states
@@ -45,6 +44,12 @@ const resolvers = {
             console.log(name, age, books);
             const author = new authorModel({name: name, age: age, books: books});
             return author.save();
+        },
+        deleteAuthor: (root, {id}) => {
+            return authorModel.findOneAndRemove({id});
+        },
+        updateAuthor: (root, {id, name}) => {
+            return authorModel.findOneAndUpdate({id},{name});
         }
     }
 };

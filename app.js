@@ -11,7 +11,9 @@ import mongoose from 'mongoose';
 // handle http requests
 const server = express();
 // docker run --name mongoGraphql -dit -p 27017:27017 -v mongoDocker:/data/db mongo
-mongoose.connect('mongodb://localhost/graphqlTutorial')
+mongoose.connect('mongodb://localhost/graphqlTutorial',{
+    useMongoClient: true
+})
 
 const connection = mongoose.connection;
 connection.once('open', () => {
