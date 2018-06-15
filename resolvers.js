@@ -1,7 +1,7 @@
 // the fields must me exactly with same name as in schema
 
-// import mongoose from 'mongoose';
-import Author from './model/author';
+//import mongoose from 'mongoose';
+import authorModel from './model/author';
 /*
 const fakeData = [
     {
